@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proiect PIGMC - Acasa</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="formular.css">
+    <link rel="stylesheet" href="resset.css">
+</head>
+<body>
+    <header>
+        <div class="navigatie">
+            <a href="#home">Acasa</a>
+            <a href="#grafice">Grafice online  </a>
+            <a href="#quizz">Quizz online</a>
+            <a class="active"  href="https://luciancopos.github.io/ProiectPIGMC/formular">Formular de contact</a>
+          </div
+    </header>
+    <main>
+<h1> Formular</h1>
+<div id="formular">
+<div id="contact-form">
+   
+    <label for="nume">Nume:</label>
+    <input type="text" id="nume" name="nume">
+
+    <label for="prenume">Prenume:</label>
+    <input type="text" id="prenume" name="prenume">
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email">
+
+    <label for="telefon">Telefon:</label>
+    <input type="tel" id="telefon" name="telefon">
+
+    <button onclick="submitForm()">Trimite Formularul</button>
+</div>
+
+<div id="display-container"></div>
+</div>
+    </main>
+    <footer>
+        <p>Autor: Copos Lucian<br>
+            <a href="mailto:coposlucian@yahoo.com">coposlucian@yahoo.com</a></p>
+    </footer>
+    <script src="formular.js"></script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+
+  main h1{
+    text-align: center;
+    color: black;
+    padding-top: 20px;
+    padding-bottom: 40px;
+}
+main{
+  font-family: Arial, sans-serif;
+  min-height: 800px;
+  height: 100vh;
+  margin: 0;
+}
+#calculatoare{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+#calculator-containerCD,#calculator-containerImp {
+  margin: 20px;
+  border: 1px solid #233142;
+  border-radius: 10px;
+  box-shadow: 2px 1px 1px  #233142;
+  text-align: center;
+  padding: 20px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+canvas {
+  margin-top: 20px;
+}

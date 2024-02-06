@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proiect PIGMC - Grafices</title>
+    <link rel="stylesheet" href="grafice.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="resset.css">
+</head>
+<body>
+    <header>
+        <div class="navigatie">
+            <a  href="#home">Acasa</a>
+            <a class="active" href="grafice.html">Grafice online  </a>
+            <a href="#quizz">Quizz online</a>
+            <a href="#formular">Formular de contact</a>
+          </div
+        </header>
+    <main>
+<h1> Grafice online</h1>
+<div id="calculatoare">
+<div id="calculator-containerCD">
+    <h2>Caderea de Tensiune in Circuit RLC</h2>
+    <label for="resistor">Valoarea Rezistorului (ohmi): </label>
+    <input type="number" id="resistor" placeholder="Ex: 100">
+    <br>
+    <label for="inductanta">Valoarea Inductanței (H): </label>
+    <input type="number" id="inductanta" placeholder="Ex: 0.01">
+    <br>
+    <label for="condensator">Valoarea Condensatorului (F): </label>
+    <input type="number" id="condensator" placeholder="Ex: 0.000001">
+    <br>
+    <label for="frecventa">Frecvența Sursa (Hz): </label>
+    <input type="number" id="frecventa" placeholder="Ex: 50">
+    <br>
+    <button onclick="calculateVoltageDrop()">Calcul Cădere de Tensiune</button>
+    <canvas id="voltageDropChart" width="400" height="200"></canvas>
+</div>
+    <div id="calculator-containerImp">
+        <h2>Impedanta Totala in Circuit RLC</h2>
+        <label for="resistorImp">Valoarea Rezistorului (ohmi): </label>
+        <input type="number" id="resistorImp" placeholder="Ex: 100">
+        <br>
+        <label for="inductantaImp">Valoarea Inductanței (H): </label>
+        <input type="number" id="inductantaImp" placeholder="Ex: 0.01">
+        <br>
+        <label for="condensatorImp">Valoarea Condensatorului (F): </label>
+        <input type="number" id="condensatorImp" placeholder="Ex: 0.000001">
+        <br>
+        <label for="frecventaImp">Frecvența Sursa (Hz): </label>
+        <input type="number" id="frecventaImp" placeholder="Ex: 50">
+        <br>
+        <button onclick="calculateTotalImpedance()">Calcul Impedanta Totala</button>
+        <canvas id="totalImpedanceChart" width="400" height="200"></canvas>
+    </div>
+</div>
+    </main>
+    <footer>
+        <p>Autor: Copos Lucian<br>
+            <a href="mailto:coposlucian@yahoo.com">coposlucian@yahoo.com</a></p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="grafice.js"></script>
+</body>
+</html>
