@@ -11,23 +11,30 @@ main{
   height: 100vh;
   margin: 0;
 }
-#calculatoare{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-#calculator-containerCD,#calculator-containerImp {
-  margin: 20px;
-  border: 1px solid #233142;
-  border-radius: 10px;
-  box-shadow: 2px 1px 1px  #233142;
-  text-align: center;
-  padding: 20px;
-  display: flex;
-  align-items: flex-start;
-  flex-direction: column;
-}
+   #calculator-container {
+            text-align: center;
+        }
 
-canvas {
-  margin-top: 20px;
-}
+        canvas {
+            margin-top: 20px;
+        }
+
+        label {
+            margin-bottom: 10px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+        }
+
+        button {
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        #chart-container {
+            display: flex;
+            justify-content: space-around;
+        }
