@@ -1,95 +1,81 @@
-function calculateVoltageDrop() {
-    const resistorValue = parseFloat(document.getElementById("resistor").value);
-    const inductanceValue = parseFloat(document.getElementById("inductanta").value);
-    const capacitorValue = parseFloat(document.getElementById("condensator").value);
-    const frequencyValue = parseFloat(document.getElementById("frecventa").value);
+        function calculateAndDisplay() {
+            const resistorValue = parseFloat(document.getElementById("resistor").value);
+            const inductanceValue = parseFloat(document.getElementById("inductanta").value);
+            const capacitorValue = parseFloat(document.getElementById("condensator").value);
+            const frequencyValue = parseFloat(document.getElementById("frecventa").value);
 
-    if (isNaN(resistorValue) || isNaN(inductanceValue) || isNaN(capacitorValue) || isNaN(frequencyValue)) {
-        alert("Introduceți valori valide pentru rezistor, inductanță, condensator și frecvență.");
-        return;
-    }
-
-    // Calcul cădere de tensiune ()
-    const voltageDrop = resistorValue * inductanceValue * capacitorValue * frequencyValue;
-
-    // Afișare grafic
-    displayChart(voltageDrop);
-}
-
-function displayChart(voltageDrop) {
-    const ctx = document.getElementById("voltageDropChart").getContext("2d");
-
-    // Șterge graficul precedent dacă există
-    if (window.myChart) {
-        window.myChart.destroy();
-    }
-
-    window.myChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: ['Cădere de Tensiune'],
-            datasets: [{
-                label: 'Cădere de Tensiune (V)',
-                data: [voltageDrop],
-                backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                borderColor: 'rgba(75, 192, 192, 1)',
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
+            if (isNaN(resistorValue) || isNaN(inductanceValue) || isNaN(capacitorValue) || isNaN(frequencyValue)) {
+                alert("Introduceți valori valide pentru rezistor, inductanță, condensator și frecvență.");
+                return;
             }
+
+            // Calcul impedanta totala (exemplu simplu)
+            const totalImpedance = Math.sqrt(resistorValue**2 + (inductanceValue - capacitorValue)**2);
+
+            // Calcul cadere de tensiune (exemplu simplu)
+            const voltageDrop = resistorValue * inductanceValue * capacitorValue * frequencyValue;
+
+            // Afișare grafice
+            displayImpedanceChart(totalImpedance);
+            displayVoltageDropChart(voltageDrop);
         }
-    });
-}
 
-function calculateTotalImpedance() {
-    const resistorValue = parseFloat(document.getElementById("resistorImp").value);
-    const inductanceValue = parseFloat(document.getElementById("inductantaImp").value);
-    const capacitorValue = parseFloat(document.getElementById("condensatorImp").value);
-    const frequencyValue = parseFloat(document.getElementById("frecventaImp").value);
+        function displayImpedanceChart(impedance) {
+            const impedanceCtx = document.getElementById("impedance-chart").getContext("2d");
 
-    if (isNaN(resistorValue) || isNaN(inductanceValue) || isNaN(capacitorValue) || isNaN(frequencyValue)) {
-        alert("Introduceți valori valide pentru rezistor, inductanță, condensator și frecvență.");
-        return;
-    }
-
-    // Calcul impedanta totala ()
-    const totalImpedance = Math.sqrt(resistorValue**2 + (inductanceValue - capacitorValue)**2);
-
-    // Afișare grafic
-    displayChart(totalImpedance);
-}
-
-function displayChart(totalImpedance) {
-    const ctx = document.getElementById("totalImpedanceChart").getContext("2d");
-
-    // Șterge graficul anterior dacă există
-    if (window.myChart) {
-        window.myChart.destroy();
-    }
-
-    window.myChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: ['Impedanta Totala'],
-            datasets: [{
-                label: 'Impedanta Totala (ohmi)',
-                data: [totalImpedance],
-                backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                borderColor: 'rgba(75, 192, 192, 1)',
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
+            // Șterge graficul anterior dacă există
+            if (window.impedanceChart) {
+                window.impedanceChart.destroy();
             }
+
+            window.impedanceChart = new Chart(impedanceCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Impedanta Totala'],
+                    datasets: [{
+                        label: 'Valori',
+                        data: [impedance],
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
         }
-    });
-}
+
+        function displayVoltageDropChart(voltageDrop) {
+            const voltageDropCtx = document.getElementById("voltage-drop-chart").getContext("2d");
+
+            // Șterge graficul anterior dacă există
+            if (window.voltageDropChart) {
+                window.voltageDropChart.destroy();
+            }
+
+            window.voltageDropChart = new Chart(voltageDropCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Cădere de Tensiune'],
+                    datasets: [{
+                        label: 'Valori',
+                        data: [voltageDrop],
+                        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                        borderColor: 'rgba(255, 99, 132, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        }
