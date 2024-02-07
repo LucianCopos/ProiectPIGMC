@@ -1,4 +1,4 @@
-      function calculateVoltageDrop() {
+   function calculateVoltageDrop() {
     const resistorValue = parseFloat(document.getElementById("resistor").value);
     const inductanceValue = parseFloat(document.getElementById("inductanta").value);
     const capacitorValue = parseFloat(document.getElementById("condensator").value);
@@ -47,32 +47,32 @@ function displayChart(voltageDrop) {
 }
 
 function calculateTotalImpedance() {
-    const resistorValue = parseFloat(document.getElementById("resistorImp").value);
-    const inductanceValue = parseFloat(document.getElementById("inductantaImp").value);
-    const capacitorValue = parseFloat(document.getElementById("condensatorImp").value);
-    const frequencyValue = parseFloat(document.getElementById("frecventaImp").value);
+    const resistorValueImp = parseFloat(document.getElementById("resistorImp").value);
+    const inductanceValueImp = parseFloat(document.getElementById("inductantaImp").value);
+    const capacitorValueImp = parseFloat(document.getElementById("condensatorImp").value);
+    const frequencyValueImp = parseFloat(document.getElementById("frecventaImp").value);
 
-    if (isNaN(resistorValue) || isNaN(inductanceValue) || isNaN(capacitorValue) || isNaN(frequencyValue)) {
+    if (isNaN(resistorValueImp) || isNaN(inductanceValueImp) || isNaN(capacitorValueImp) || isNaN(frequencyValueImp)) {
         alert("Introduceți valori valide pentru rezistor, inductanță, condensator și frecvență.");
         return;
     }
 
     // Calcul impedanta totala ()
-    const totalImpedance = Math.sqrt(resistorValue**2 + (inductanceValue - capacitorValue)**2);
+    const totalImpedance = Math.sqrt(resistorValueImp**2 + (inductanceValueImp - capacitorValueImp)**2);
 
     // Afișare grafic
-    displayChart(totalImpedance);
+    displayChartimp(totalImpedance);
 }
 
-function displayChart(totalImpedance) {
+function displayChartimp(totalImpedance) {
     const ctx = document.getElementById("totalImpedanceChart").getContext("2d");
 
     // Șterge graficul anterior dacă există
-    if (window.myChart) {
-        window.myChart.destroy();
+    if (window.myChartImp) {
+        window.myChartImp.destroy();
     }
 
-    window.myChart = new Chart(ctx, {
+    window.myChartImp = new Chart(ctx, {
         type: 'bar',
         data: {
             labels: ['Impedanta Totala'],
