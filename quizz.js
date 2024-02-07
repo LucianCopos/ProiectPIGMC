@@ -34,6 +34,6 @@ const correctAnswers = {
     'question2': 'a',
     'question3': 'a',
     'question4': 'b',
-    'question5': 'c',
+    'question5': 'b',
     // Adaugă răspunsurile corecte pentru întrebările 3, 4 și 5 aici
 };
