@@ -7,3 +7,8 @@ main{
     color: black;
     padding-top: 20px;
 }
+.desc{
+    text-align:center;
+}
+.desc p,.desc h3{
+    padding:20px;}
